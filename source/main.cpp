@@ -16,7 +16,8 @@ int main(int argc, char* argv[])
         Add,
         Sub,
         Div,
-        Mul
+        Mul,
+        Pow
     };
 
     float first_num = std::stof(argv[1]);
@@ -27,7 +28,7 @@ int main(int argc, char* argv[])
     /* Main block */
     std::string input;
 
-    std::cout << "Choose an action(Add, Sub, Div, Mul): " << std::flush;
+    std::cout << "Choose an action(Add, Sub, Div, Mul, Pow): " << std::flush;
     std::getline(std::cin, input);
 
 
@@ -46,6 +47,10 @@ int main(int argc, char* argv[])
     else if (std::strcmp(input.c_str(), "Mul") == 0)
     {
         choice = Mul;
+    }
+    else if (std::strcmp(input.c_str(), "Pow") == 0)
+    {
+        choice = Pow;
     }
     else
     {
@@ -66,6 +71,9 @@ int main(int argc, char* argv[])
             break;
         case 3:
             result = Math::Multiply(first_num, second_num);
+            break;
+        case 4:
+            result = Math::Pow(first_num, second_num);
             break;
         default:
             break;
