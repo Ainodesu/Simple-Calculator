@@ -23,7 +23,7 @@ fn main()
     // Main Block //
     let mut buff = String::new();
 
-    println!("Choose an action(Add, Sub, Div, Mul): ");
+    println!("Choose an action(Add, Sub, Div, Mul, Pow): ");
     io::stdin()
         .read_line(&mut buff)
         .expect("Impossible to read line!");
@@ -44,6 +44,10 @@ fn main()
     {
         choice = 3;
     }
+    else if buff.trim() == "Pow"
+    {
+        choice = 4;
+    }
     else
     {
         println!("Unknown Action!\n");
@@ -56,6 +60,7 @@ fn main()
         1 => result = maths::maths_substract(first_number, second_number),
         2 => result = maths::maths_divide(first_number, second_number),
         3 => result = maths::maths_multiply(first_number, second_number),
+        4 => result = maths::maths_pow(first_number, second_number),
         _ => unreachable!()
     }
 
