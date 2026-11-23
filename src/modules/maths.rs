@@ -20,7 +20,3 @@ pub fn maths_multiply(x: f32, y: f32) -> f32
 {
     x * y 
 }
-pub fn maths_pow(x: f32, y: f32) -> f32
-{
-    x.powf(y)
-}
