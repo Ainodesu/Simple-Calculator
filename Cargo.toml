@@ -1,5 +1,5 @@
 [package]
-name = "simplecalculator"
+name = "rustcalc"
 version = "0.0.3"
 edition = "2024"
 
