@@ -6,3 +6,6 @@
 *.tar.gz
 *.rar
 *.7z
+
+# Secret
+/RustCalculator

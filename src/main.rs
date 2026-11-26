@@ -12,8 +12,8 @@ fn main()
     let argv: Vec<String> = env::args().collect();
     let argc: usize = argv.len();
 
-    let first_number;
-    let second_number;
+    let first_number: f32;
+    let second_number: f32;
     let result: f32;
 
     let action_choice: i8;
@@ -22,9 +22,9 @@ fn main()
     // End //
 
     // Arguments check //
-    if argc < 3
+    if argc < 3 || argc > 3 
     {
-        println!("Usage: {} -- <num> <num>\n or\n Usage: {} -- -flag <num>\n", argv[0], argv[0]);
+        println!("Usage: \n- cargo run -- -fac <number>\n- cargo run -- <number> <number>\n");
         return;
     }
     factorial = argv[1] == "-fac";
@@ -32,7 +32,14 @@ fn main()
 
     if factorial
     {
-        let number = argv[2].parse::<u64>().unwrap();
+        let number = match argv[2].parse()
+        {
+            Ok(value) => value,
+            Err(error) => {
+                println!("Error: {}, Hm.. Second Number isn't a number, are you kidding me?\n", error);
+                return;
+            }
+        };
         let result: u64 = highmaths::maths_factorial(number);
         println!("Result: {}", result);
 
@@ -40,19 +47,31 @@ fn main()
     }
     else
     {
-        first_number = argv[1].parse::<f32>().unwrap();
-        second_number = argv[2].parse::<f32>().unwrap();
+        first_number = match argv[1].parse()
+        {
+            Ok(value) => value,
+            Err(error) => {
+                println!("Error: {}, Hm.. First Number isn't a number, are you kidding me?\n", error);
+                return;
+            }
+        };
+        second_number = match argv[2].parse()
+        {
+            Ok(value) => value,
+            Err(error) => {
+                println!("Error: {}, Hm.. Second Number isn't a number, are you kidding me?\n", error);
+                return;
+            }
+        };
     }
 
     // Main Block //
     let mut buff = String::new();
-    if !factorial // if variable "factorial" is false, then do code in {} 
-    {
-        println!("Choose an action(Add, Sub, Div, Mul, Pow): ");
-        io::stdin()
-            .read_line(&mut buff)
-            .expect("Impossible to read line!");
-    }
+
+    println!(">>  ");
+    io::stdin()
+        .read_line(&mut buff)
+        .expect("Impossible to read line!");
 
     match buff.as_str().trim()
     {

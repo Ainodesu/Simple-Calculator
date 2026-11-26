@@ -1,21 +1,17 @@
-# [0.0.3] - 2026.11.23
+# Changelog
+
+All notable changes to this project will be documented here.
+
+## [0.0.4] - 2026.11.26
 
 ### Added
 
-- Added `Factorial` Function
-- Rust branch also have a CHANGELOG.md now
-- Added `highmaths.rs` module
-
-### Fixed
-
-- README.md Hotfix
-- .gitignore Fix
+  1. Added error handling to prevent unexpected program termination due to invalid input.
 
 ### Changed
 
-- Replaced `if-else` statements with a `match` expression.
-- `pow()` and `factorial()` has been moved to `highmaths.rs` module
+   1. Improved the Usage message formatting.
 
-### My Opinion
+### Fixed
 
-- I think this update SHOULD introduce a lot of bugs. That's enough
+   1. Fixed an issue where the program continued running despite receiving more than three arguments.
