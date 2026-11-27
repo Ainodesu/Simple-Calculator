@@ -1,6 +1,15 @@
 [package]
-name = "rustcalc"
-version = "0.0.4"
+name = "calculator"
+version = "0.1.0-beta"
 edition = "2024"
+license = "Apache 2.0"
 
-[dependencies]
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+debug = false

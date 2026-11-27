@@ -8,4 +8,9 @@
 *.7z
 
 # Secret
-/RustCalculator
+/Builds
+
+# IDEs and other garbage
+/.vscode
+/.venv
+/.vs
