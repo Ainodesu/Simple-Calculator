@@ -1,5 +1,12 @@
 # Build Trash
 /target
+/debug
+
+/Builds
+/Build
+/build
+
+/bin
 
 # Archive
 *.zip
@@ -7,10 +14,8 @@
 *.rar
 *.7z
 
-# Secret
-/Builds
-
 # IDEs and other garbage
 /.vscode
 /.venv
 /.vs
+/.idea
