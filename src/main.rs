@@ -8,7 +8,7 @@ use std::io::Write;
 fn main()
 {
     // Variables //
-    let version: &str = "v0.1.0-beta, November of 28 2026 y";
+    let version: &str = "v0.1.0-beta 2026.11.28 21:02(UTC)";
 
     let arguments: Vec<String> = env::args().collect();
     let arguments_length: usize = arguments.len();
