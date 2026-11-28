@@ -1,7 +1,7 @@
 # 💫 Simple Calculator on Rust 🦀
 
 [![Apache 2.0 License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat)](https://choosealicense.com/licenses/apache-2.0/)
-![Commits](https://img.shields.io/github/last-commit/Ainodesu/Simple-Calculator/rust)
+![Commits](https://img.shields.io/github/last-commit/Ainodesu/Simple-Calculator/main)
 ![Issues](https://img.shields.io/github/issues/Ainodesu/Simple-Calculator)
 ![Repo size](https://img.shields.io/github/repo-size/Ainodesu/Simple-Calculator)
 
