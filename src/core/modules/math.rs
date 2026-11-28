@@ -7,15 +7,15 @@ pub fn math_substract(x: f32, y: f32) -> f32
 {
     x - y
 }
-pub fn math_divide(x: f32, y: f32) -> f32
+pub fn math_divide(num: f32, denom: f32) -> f32
 {
-    if y == 0.0
+    if denom == 0.0
     {
         println!("Division by 0 is prohibited!\n");
         return 0.0;
     }
 
-    x / y
+    num / denom
 }
 pub fn math_multiply(x: f32, y: f32) -> f32
 {
@@ -38,13 +38,13 @@ pub fn math_factorial(n: u64) -> u64
 
     result
 }
-pub fn math_sqrt(x: f32) -> f32
+pub fn math_sqrt(n: f32) -> f32
 {
-    if x <= 0.0
+    if n <= 0.0
     {
         println!("Error: Square root of a negative number is prohibited!\n");
         return 0.0;
     }
 
-    x.sqrt()
+    n.sqrt()
 }

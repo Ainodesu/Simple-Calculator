@@ -8,10 +8,19 @@ use std::io::Write;
 fn main()
 {
     // Variables //
-    let version: &str = "v0.1.0-beta 2026.11.28 21:02(UTC)";
+    let app_version: &str = "v1.0.0 2026.11.28 08:25(UTC)";
 
     let arguments: Vec<String> = env::args().collect();
     let arguments_length: usize = arguments.len();
+
+    enum Actions
+    {
+        Addition = 0,
+        Substract = 1,
+        Divide = 2,
+        Multiply = 3,
+        Power = 4
+    }
     // End //
 
     // Arguments check //
@@ -24,8 +33,8 @@ fn main()
     {
         match arguments[1].as_str()
         {
-            "-help" => { println!("Actions:\n Add - x + y,\n Sub - x - y,\n Div - x / y,\n Mul - x * y,\n Pow - x ^ y,\n\n -fac <n> - n!,\n -sqrt <n> - a*a...n"); return; },
-            "-version" => { println!("{0}", version); return; },
+            "-help" | "-h" => { println!("Actions:\n Add - x + y,\n Sub - x - y,\n Div - x / y,\n Mul - x * y,\n Pow - x ^ y,\n\n -fac <n> - n factorial, like 'n!',\n -sqrt <n> - square of n"); return; },
+            "-version" | "-v" => { println!("{0}", app_version); return; },
             "-fac" => 
             {
                 let number = match arguments[2].parse()
@@ -89,13 +98,13 @@ fn main()
         .expect("Couldn't read a line!");
     /* END */
 
-    let action_choice: i8 = match buff.as_str().trim()
+    let action_choice = match buff.as_str().trim()
     {
-        "Add" => 0,
-        "Sub" => 1,
-        "Div" => 2,
-        "Mul" => 3,
-        "Pow" => 4,
+        "Add" => Actions::Addition,
+        "Sub" => Actions::Substract,
+        "Div" => Actions::Divide,
+        "Mul" => Actions::Multiply,
+        "Pow" => Actions::Power,
         "Fac" | "-fac" => { println!("Usage: \n- cargo run -- -fac <number>\n"); return; },
         "Sqrt" | "-sqrt" => { println!("Usage: \n- cargo run -- -sqrt <number>\n"); return; },
         _ => { println!("Unknown Action!\n"); return; }
@@ -103,12 +112,11 @@ fn main()
 
     let result: f32 = match action_choice
     {
-        0 => math::math_addition(first_number, second_number),
-        1 => math::math_substract(first_number, second_number),
-        2 => math::math_divide(first_number, second_number),
-        3 => math::math_multiply(first_number, second_number),
-        4 => math::math_power(first_number, second_number),
-        _ => unreachable!()
+        Actions::Addition => math::math_addition(first_number, second_number),
+        Actions::Substract => math::math_substract(first_number, second_number),
+        Actions::Divide => math::math_divide(first_number, second_number),
+        Actions::Multiply => math::math_multiply(first_number, second_number),
+        Actions::Power => math::math_power(first_number, second_number)
     };
 
     println!("Result is: {}", result);
